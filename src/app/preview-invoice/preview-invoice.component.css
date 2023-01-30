@@ -1,0 +1,25 @@
+.preInvoice {
+  padding: 10px;
+}
+
+.invoice-table {
+  margin: 5px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 10px;
+  min-width: 100px;
+  border-right:1px solid #E0E0E0;
+}
+
+.invoice-table th {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.mat-footer-row {
+  text-align: right;
+}
+

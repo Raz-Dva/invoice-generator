@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+  <ng-container formArrayName="invoiceForm">
+    <ng-container *ngFor="let control of invoiceForm.controls; let i = index">
+      <div class="lesson-form-row" [formGroupName]="i">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+          <mat-error *ngIf="control.get('name')?.errors">Please enter name</mat-error>
+          <mat-error *ngIf="control.get('name')?.errors?.minlength">Min length 3</mat-error>
+          <mat-error *ngIf="control.get('name')?.errors?.maxlength">Max length 30</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Count</mat-label>
+          <input matInput formControlName="count" required>
+          <mat-error *ngIf="control.get('count')?.errors">Please enter count</mat-error>
+          <mat-error *ngIf="control.get('count')?.errors?.min">Min 1</mat-error>
+          <mat-error *ngIf="control.get('count')?.errors?.max">Max 100</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" required>
+          <mat-error *ngIf="control.get('price')?.errors">Please enter count</mat-error>
+          <mat-error *ngIf="control.get('price')?.errors?.min">Min 1</mat-error>
+          <mat-error *ngIf="control.get('price')?.errors?.max">Max 100</mat-error>
+        </mat-form-field>
+
+        <button mat-icon-button color="primary" (click)="deleteFormGroup(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div>
+    <button class="btn-add" mat-icon-button color="primary" type="button" (click)="addFormGroup()">
+      <mat-icon>add</mat-icon>
+      {{ 'Add new item' }}
+    </button>
+  </div>
+
+  <div>
+    <button class="btn-submit" mat-raised-button mat-stroked-button color="primary" (click)="submit()">Submit</button>
+  </div>
+</form>
