@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CompanyInfoService } from 'src/app/services/company-info/company-info.service';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 type ItemInvoice = { name: string; price: string; count: string; '#': number };
 type FormValueInvoice = { invoiceForm: ItemInvoice[] }
 type CompanyInfo = { name: string; address: string; phones: string[]; }
 
-@UntilDestroy()
 @Component({
     selector: 'app-preview-invoice',
     templateUrl: './preview-invoice.component.html',
@@ -50,8 +48,7 @@ export class PreviewInvoiceComponent implements OnInit {
   }
 
   getCompanyInfo(): void {
-      this.serviceInfo.getCompanyInfo().pipe(
-          untilDestroyed(this)).subscribe({
+      this.serviceInfo.getCompanyInfo().subscribe({
           next: (companyData) => {
               this.companyInfo = companyData;
           },
