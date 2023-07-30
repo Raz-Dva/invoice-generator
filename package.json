@@ -1,5 +1,5 @@
 {
-  "name": "kgl",
+  "name": "invoice-generator",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "deploy": "ng deploy --base-href=/Invoice-generator/"
+    "deploy": "ng deploy --base-href=/invoice-generator/"
   },
   "private": true,
   "dependencies": {
